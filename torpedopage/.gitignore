@@ -2,6 +2,6 @@
 *~
 __pycache__
 db.sqlite3
-/static/imagenes
+/static
 .DS_Store
 media
