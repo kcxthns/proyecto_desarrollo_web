@@ -49,8 +49,8 @@
                         Tipos ligeramente normales.
                     </p>
                     <p>
-                        Oh!, tambien estan nuestros asociados, el maestro de Instagram, Judas y el de Facebook,
-                        Jaramillo, tambien conocido como Scrum Master.
+                        Oh!, también están nuestros asociados, el maestro de Instagram, Judas; y el de Facebook,
+                        Jaramillo, conocido como Scrum Master.
                     </p>
                 </div>
             </div>
@@ -60,8 +60,8 @@
                     <div class="down">
                         {% for imagenGaleria in imagenGaleria %}
                         <a href="{{ imagenGaleria.imagen.url }}" data-fancybox="gallery"
-                            data-caption="Preparandose para el calendario 2019"><img
-                                src="{{ imagenGaleria.imagen.url }}" alt="imagen Nosotros" width="300" height="200"></a>
+                            data-caption="{{ imagenGaleria.descripcion }}"><img
+                                src="{{ imagenGaleria.imagen.url }}" alt="{{ imagenGaleria.nombre }}" width="300" height="200"></a>
                         {% endfor %}
                         <!--<a href="imagenes/jaramillo_the_last.jpeg" data-fancybox="gallery"
                                 data-caption="El mas grande de todos"><img src="imagenes/jaramillo_the_last.jpeg" alt="imagen Nosotros"

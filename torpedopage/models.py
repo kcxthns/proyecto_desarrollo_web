@@ -17,6 +17,6 @@ class ImagenPage(models.Model):
         return self.descripcion
 
 class ImagenGaleria(models.Model):
-    nombre = models.CharField(primary_key=True, max_length=200)
-    descripcion = models.CharField(max_length=250)
+    nombre = models.CharField(primary_key=True, max_length=200, help_text="Debe contener la palabra galeria")
+    descripcion = models.CharField(max_length=250, help_text="Descripción que aparecerá al pie de la foto en la galería")
     imagen = models.ImageField(upload_to='media/galeria')
