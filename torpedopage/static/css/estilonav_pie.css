@@ -1,0 +1,84 @@
+.header {
+    background: white;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 0.5%;
+    height: 15vw;
+}
+
+.header img {
+    height: 100%;
+}
+
+.nav {
+    font-family: 'Monoton';
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    text-shadow: 4px 4px 4px orange;
+}
+
+.backgroundnav {
+    background: #FFAB00;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    margin-bottom: 0%;
+}
+
+.nav ul {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: right;
+}
+
+.nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 1.5%
+}
+
+.nav ul li:hover {
+    background: #c45529;
+}
+
+.nav ul li a {
+    color: #E1F5FE;
+    text-decoration: none;
+}
+
+/*SOLO SE USA EN LA PAGINA MORELATER*/
+#imagensorry{
+    margin-top: -8%;
+    width: 50%
+}
+
+.pie {
+    padding: 0.5%;
+    font-family: 'Ubuntu Mono', monospace;
+    text-align: left;
+}
+
+.piebackground {
+    background: #FFAB00;
+    /*border-radius: 0.5em;*/
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    margin-bottom: 0.5%;
+}
+
+.pie img {
+    padding: 1%
+}
+
+.footer {
+    margin: 10px;
+    background: white;
+    border-top: 1px solid darkgray;
+    margin-top: 0px;
+    padding: 10px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.footer h5 {
+    color: black;
+}

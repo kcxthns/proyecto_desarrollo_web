@@ -1,0 +1,110 @@
+{% load static %}
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloAboutUs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <title>Nosotros</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+                <div class="header">
+                    {% for logo in logo %}
+                    <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                    {% endfor %}
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="col-xs-12 backgroundnav">
+                <div class="nav">
+                    <ul>
+                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
+                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
+                        <li><a href="">EMPEZAR</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--Contenido-->
+        <div class="row">
+            <div class="col-xs-12 col-lg-3 backgroundAboutUs">
+                <div class="contenedorAboutUs">
+                    <h1>Nosotros</h1>
+                    <p>
+                        So... esos de la galeria somos nosotros.
+                    </p>
+                    <p>
+                        Tipos ligeramente normales.
+                    </p>
+                    <p>
+                        Oh!, tambien estan nuestros asociados, el maestro de Instagram, Judas y el de Facebook,
+                        Jaramillo, tambien conocido como Scrum Master.
+                    </p>
+                </div>
+            </div>
+            <!--Galeria-->
+            <div class="backgroundGaleria col-xs-12 col-lg-9 center-xs">
+                <div>
+                    <div class="down">
+                        {% for imagenGaleria in imagenGaleria %}
+                        <a href="{{ imagenGaleria.imagen.url }}" data-fancybox="gallery"
+                            data-caption="Preparandose para el calendario 2019"><img
+                                src="{{ imagenGaleria.imagen.url }}" alt="imagen Nosotros" width="300" height="200"></a>
+                        {% endfor %}
+                        <!--<a href="imagenes/jaramillo_the_last.jpeg" data-fancybox="gallery"
+                                data-caption="El mas grande de todos"><img src="imagenes/jaramillo_the_last.jpeg" alt="imagen Nosotros"
+                                    width="300" height="200"></a>
+                            <a href="imagenes/gal3.jpg" data-fancybox="gallery"
+                                data-caption="Dale like si el material que vez te gusta"><img src="imagenes/gal3.jpg" alt="imagen Nosotros"
+                                    width="300" height="200"></a>
+                            <a href="imagenes/gal1.jpg" data-fancybox="gallery"><img src="imagenes/gal1.jpg" width="300" alt="imagen Nosotros"
+                                    height="200"></a>
+                            <a href="imagenes/gal2.jpg" data-fancybox="gallery"><img src="imagenes/gal2.jpg" width="300" alt="imagen Nosotros"
+                                    height="200"></a>
+                            <a href="imagenes/gal3.jpg" data-fancybox="gallery"><img src="imagenes/gal3.jpg" width="300" alt="imagen Nosotros"
+                                    height="200"></a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="piebackground col-xs-12">
+                <div class="pie">
+                    <h2>Síguenos:</h2>
+                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50"
+                            width="50"></a>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="row">
+            <div class="col-xs-12">
+                <div class="footer">
+                    <h5>Desarrollado por MadCompany</h5>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+</body>
+
+
+</html>

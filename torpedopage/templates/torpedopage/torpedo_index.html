@@ -1,0 +1,168 @@
+{% load static %}
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.flexslider.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloinicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <script>
+        $(window).load(function () {
+            $('.contenido').flexslider();
+        });
+    </script>
+    <title>Torpedo</title>
+</head>
+
+
+<body>
+    <!-- col-xs col-sm col-md col-lg-->
+    <!--Header-->
+    <div class="container">
+
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+                <div class="header">
+                    <div>
+                        {% for logo in logo %}
+                        <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="backgroundnav col-xs-12">
+                <div class="nav">
+                    <ul>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
+                        <li><a href="">EMPEZAR</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Slider-->
+        <div class="row">
+            <div class="col-xs-12  col-md-9 backgroundcontenido">
+                <div class="box">
+                    <div class="col-md-12 center-md contenido">
+                        <ul class="slides">
+                            {% for imagenSlider in imagenSlider %}
+                            <li>
+                                <img src="{{ imagenSlider.imagen.url }}" alt="{{ imagenSlider.descripcion }}">
+                                <section class="flex-caption"></section>
+                            </li>
+                            {% endfor %}
+                            <!--<li>
+                                    <img src="2.png" alt="imagen2">
+                                    <section class="flex-caption"></section>
+                                </li>
+                                <li>
+                                    <img src="imagenes/3.png" alt="imagen3">
+                                    <section class="flex-caption"></section>
+                                </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-3 first-md sidebarizquierdabackground">
+                <div class="sidebarizquierda">
+                    <div>
+                        <h3>Hey, bienvenido!!!</h3>
+                        <p>
+                            ¿Buscas ese esquivo y legendario apunte?
+                        </p>
+                        <p>
+                            ¿O quieres compartir tus maravillosos apuntes?
+                        </p>
+                        <p>
+                            ¡¡¡Estás en el sitio correcto!!!
+                        </p>
+                        <p>
+                            Ve y presiona EMPEZAR
+                        </p>
+                        <p>
+                            Y si ya estás inscrito LOGUEATE!!!
+                        </p>
+                        <div class="box">
+                            <div class="logueo">
+                                <form id="formulario_logueo" action="#" method="POST">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 center-xs">
+                                            <label>Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 center-xs ">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 center-xs">
+                                            <label>Contraseña</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 center-xs ">
+                                            <input type="password">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 center-xs">
+                                            <!--<input type="submit">-->
+                                            <button id="boton_logueo">Ingresar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <p>
+                            <a href="https://www.google.cl/search?source=hp&ei=-rKLXa3_FL3X5OUP1c2fiAo&q=mejorar+memoria&oq=mejorar+mem&gs_l=psy-ab.3.0.0l10.2226.4764..5990...0.0..0.137.731.9j2......0....1..gws-wiz.......0i131.Zwz-S-6WNx4"
+                                target="_blank">Olvidaste
+                                la contraseña??</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 piebackground">
+                <div class="pie">
+                    <h2>Síguenos:</h2>
+                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50"
+                            width="50"></a>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer pie de pagina-->
+        <footer class="row">
+            <div class="col-xs-12">
+                <div class="footer">
+                    <h5>Desarrollado por MadCompany</h5>
+                    <p>
+                        <a href="#">
+                            <img style="border:0;width:88px;height:31px"
+                                src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
