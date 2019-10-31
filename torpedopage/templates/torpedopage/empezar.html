@@ -1,0 +1,127 @@
+{% load static %}
+<html>
+
+<head>
+  
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+   
+    <!--<link rel="stylesheet" type="text/css" href="css\estilos.css">-->
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/estiloregistro.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/flexboxgrid.css' %}">
+    <script src="{% static 'js\scriptsvalidation.js' %}"></script>
+    <script src="{% static 'js/llenar_select.js' %}"></script>
+    <script>
+        $(function () {
+            $("#mi-formulario").validate();
+        });  
+    </script>
+    
+    <title>Empezar</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+                <div class="header">
+                    {% for logo in logo %}
+                    <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                    {% endfor %}
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="backgroundnav col-xs-12">
+                <div class="nav">
+                    <ul>
+                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
+                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
+                        <li><a href="">EMPEZAR</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Inicio contenido-->
+        <div class="row">
+            <div class="sidebackground col-xs-12 col-lg-6 center-xs start-lg">
+                <div class="sidebarizquierda">
+                    <h2>Sólo un par de clicks más!!!</h2>
+                    <p>
+                        Pero antes, completa el formulario con tus datos, no te preocupes, no los usaremos, es solo
+                        porque el profe nos pidió una serie de datos para ver si podiamos hacer las verificaciones con
+                        Javascript o JQuery XD.
+                    </p>
+                    <p>
+                        La verdad es que para inscribirse solo necesitamos un email, una contraseña y pensabamos en la
+                        carrera e institución de educación, para filtrar los apuntes y eso...
+                    </p>
+                    <p>
+                        Pero... ¡filo! completa los datos y dale a enviar!!!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-lg-6 center-xs end-lg backgroundfomulario">
+                <div class="contenedorformulario">
+                    <h2>Registro Usuario</h2>
+                    {% block content %}
+                    <form  method="POST">
+
+                        {% csrf_token %}
+                        <label>Email: </label>
+                        <input type="text" name="email" required placeholder="user@correo.com">
+                        <label>Nombre Completo </label>
+                        <input type="text" name="first_name" required placeholder="juanito ">
+                        <label>Apellido </label>
+                        <input type="text" name="last_name" required placeholder="perez">
+                        <label>Nombre de usuario</label>
+                        <input type="text" name="username" required placeholder="juaperez123">
+                    <!--<label>Apartado Contraseña</label>-->
+                    <label>Contraseña </label>
+                    <input type="password"  name="password1" minlength="8" placeholder="Contraseña">
+                    <label>Reingresa Contraseña </label>
+                    <input type="password" name="password2" minlength="8" placeholder="Repetir contraseña">
+                    
+                    <button type="submit">Enviar</button>
+
+                   
+                    </form>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="piebackground col-xs-12">
+                <div class="pie">
+                    <h2>Síguenos:</h2>
+                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
+                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50" width="50"></a>
+                </div>
+            </div>
+        </div>
+
+        <!--Es el pie de la pagina-->
+        <footer class="row bottom-xs">
+            <div class="col-xs-12">
+                <div class="footer">
+                    <h5>Desarrollado por MadCompany</h5>
+                    <p>
+                        <a href="#">
+                            <img style="border:0;width:88px;height:31px"
+                                src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

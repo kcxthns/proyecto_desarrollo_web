@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_user.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+                <div class="header">
+                    <div>
+                        {% for logo in logo %}
+                        <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="backgroundnav col-xs-12">
+                <div class="nav">
+                    <ul>
+                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
+                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
+                            <!--<li><a href="">EMPEZAR</a>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="background_menu_user col-xs-12 col-lg-3 first-md">
+                <h3>Hey, bienvenid {{ user.username | upper }}</h3>
+                <nav class="nav_user">
+                    <ul>
+                        <li>
+                            <a href="#">Agregar torpedo</a>
+                        </li>
+                        <li>
+                            <a href="#">Mis aportes</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="seccion_buscar col-xs-12 col-lg-9 center-xs">
+                <form action="#" method="GET">
+                    <input class="input_buscar" type="search">
+                    <button class="botton_buscar" type="submit">Buscar Torpedo</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="background_right_user col-xs-12">
+                <div>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

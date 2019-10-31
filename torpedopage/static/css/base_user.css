@@ -1,0 +1,52 @@
+.background_menu_user{
+    background: #008f95;
+}
+
+.background_right_user{
+    background: #c44d58;
+}
+
+.nav_user{
+    font-family: 'Monoton';
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    text-shadow: 4px 4px 4px orange;
+}
+
+.nav_user ul{
+    text-align: center;
+}
+
+.nav_user ul li{
+    list-style: none;
+    display: list-item;
+    padding: 1.5%;
+}
+
+.nav_user ul li a{
+    color: #E1F5FE;
+    text-decoration: none;
+}
+
+.seccion_buscar{
+    background: black;
+    padding: 2%;
+}
+
+.background_menu_user h3{
+    color: #E1F5FE;
+}
+
+.input_buscar{
+    border-radius: 0.5em;
+}
+
+.botton_buscar{
+    margin-left: 2%;
+    padding: 0.4%;
+    border: none;
+    border-radius: 0.5em;
+    /*font-weight: bold;*/
+    width: 10%;
+}
