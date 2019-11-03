@@ -1,3 +1,8 @@
+
+
+
+
+
 .header {
     background: white;
     border-bottom: 1px solid darkgray;
@@ -8,6 +13,10 @@
 .header img {
     height: 100%;
 }
+
+
+
+
 
 .nav {
     font-family: 'Monoton';

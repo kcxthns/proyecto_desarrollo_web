@@ -1,3 +1,4 @@
+
 .background_menu_user{
     background: #008f95;
 }
@@ -6,28 +7,95 @@
     background: #c44d58;
 }
 
-.nav_user{
-    font-family: 'Monoton';
+
+/*  icono usuario*/
+.navegacion{
+    width: 50px;
+  
+    
+    
+}
+
+.navegacion ul{
+    list-style: none;
+   text-align: right;
+   float: left;
+
+}
+
+.menu > li{
+    position: relative;
+    display: inline-block;
+}
+
+.menu > li > a{
+    display: block;
+    text-decoration: none;
+}
+
+.submenu{
+    position: absolute;
+    background: black;
+    display: none;
+    padding: 5px;
+}
+
+.submenu li a{
+    display: block;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: left;
+    width: 150px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.menu li:hover .submenu{
+    display:block;
+    
+}
+.submenu li:hover{
+    background: orange;
+}
+
+/* fin icono usuario */
+
+
+
+
+#nav_user{
+    font-family: 'Ubuntu Mono', monospace;
     font-style: normal;
     font-weight: lighter;
     color: aliceblue;
-    text-shadow: 4px 4px 4px orange;
+    font-weight: bold;
+   
 }
 
-.nav_user ul{
-    text-align: center;
+#nav_user ul li:hover{
+    background:orange;
+
 }
 
-.nav_user ul li{
+#nav_user > ul{
+    text-align: left;
+    
+}
+
+#nav_user > ul > li{
     list-style: none;
     display: list-item;
     padding: 1.5%;
+   
 }
 
-.nav_user ul li a{
+#nav_user > ul > li > a{
     color: #E1F5FE;
     text-decoration: none;
 }
+
+
 
 .seccion_buscar{
     background: black;
