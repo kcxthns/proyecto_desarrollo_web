@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class TextoPagina(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -30,5 +31,24 @@ class PreferenciasUsuario(models.Model):
     
     def __str__(self):
         return self.preferencia
+
+
+class Torpedo(models.Model):
+    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)  
+    titulo = models.CharField(max_length=100) 
+    fecha_creacion = models.DateTimeField(
+        default=timezone.now)
+    fecha_publicacion = models.DateTimeField(blank=True, null=True) 
+    materia = models.CharField(max_length=200)
+    like = models.IntegerField(default=0) 
+    media = models.FileField(upload_to='torpedos/')
+
+    def fecha(self):
+        self.fecha_publicacion = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.materia    
+
 
 
