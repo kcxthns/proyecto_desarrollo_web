@@ -19,7 +19,7 @@
                                <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50" width="50"></a>
                                      <ul class="submenu">
     
-                                        <li><a href="{% url 'preferencias' %}">agregar preferencias</a></li>
+                                        <li><a href="#">agregar preferencias</a></li>
                                         <li><a href="#">editar perfil</a></li>
     
                                      </ul>
@@ -69,7 +69,7 @@
                 <nav id="nav_user">
                     <ul>
                         <li>
-                            <a  href="{% url 'agregartorpedo' %}">Agregar torpedo</a>
+                            <a  href="#">Agregar torpedo</a>
                         </li>
                         <li>
                             <a  href="#">Mis aportes</a>
@@ -80,11 +80,19 @@
 
             </div>
 
-            <div class="seccion_buscar col-xs-12 col-lg-9 center-xs">
-                <form action="#" method="GET">
-                    <input class="input_buscar" type="search">
-                    <button class="botton_buscar" type="submit">Buscar Torpedo</button>
-                </form>
+            <div class="contenido-formulario col-xs-12 col-lg-9 center-xs">
+
+                    {% block torpedos %}
+                    <h2>Agregar el glorioso torpedo</h2>
+                    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Guardar</button>
+                    </form>
+                {% endblock %}
+                
+                 
+
+
             </div>
         </div>
 

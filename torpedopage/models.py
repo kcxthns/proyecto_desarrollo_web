@@ -40,7 +40,7 @@ class Torpedo(models.Model):
         default=timezone.now)
     fecha_publicacion = models.DateTimeField(blank=True, null=True) 
     materia = models.CharField(max_length=200)
-    like = models.IntegerField(default=0) 
+    like = models.IntegerField(default=0, blank=True, null=True) 
     media = models.FileField(upload_to='torpedos/')
 
     def fecha(self):

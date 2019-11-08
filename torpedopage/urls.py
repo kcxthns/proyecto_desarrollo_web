@@ -11,7 +11,8 @@ urlpatterns = [
     path('/empezar', views.empezar ,name='empezar'),
     path('/user_page', views.base_user, name='user_page'),
     path('logout', views.logout),
-    path('preferencias', views.preferencias, name='preferencias')
+    path('preferencias', views.preferencias, name='preferencias'),
+    path('agregartorpedo', views.agregartorpedo, name='agregartorpedo')
     
     
 

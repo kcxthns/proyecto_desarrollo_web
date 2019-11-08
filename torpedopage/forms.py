@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from .models import PreferenciasUsuario
 from django import forms
+from .models import Torpedo
 
 
 class RegistroForm(UserCreationForm):
@@ -38,5 +39,11 @@ class PreferenciaForm(forms.ModelForm):
     class Meta:
         model = PreferenciasUsuario
         fields = ('preferencia', 'idioma')
+
+class TorpedoForm(forms.ModelForm):
+
+    class Meta:
+        model = Torpedo
+        fields = ('titulo', 'materia', 'media')
 
 

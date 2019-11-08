@@ -18,7 +18,9 @@ from django.contrib.auth import logout as do_logout
 from .forms import LoginForm
 from .forms import PreferenciaForm
 from .models import PreferenciasUsuario
-
+from .models import Torpedo
+from .forms import TorpedoForm
+from django.utils import timezone
 
 
 
@@ -81,7 +83,23 @@ def preferencias(request):
             return redirect('user_page')
     else:
         form = PreferenciaForm()
-    return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})    
+    return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})   
+
+def agregartorpedo(request):
+    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
+    if request.method == "POST":
+        form = TorpedoForm(request.POST, request.FILES or None)
+        if form.is_valid():
+            Torpedo = form.save(commit=False)
+            Torpedo.autor = request.user
+            Torpedo.fecha_publicacion = timezone.now()
+            Torpedo.save()
+            return redirect('user_page')
+    else:
+        form = TorpedoForm()
+    return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})
+
+
 
             
 
