@@ -1,0 +1,110 @@
+{% load static %}
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_user.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+
+                    <nav class="navegacion">
+                            <ul class="menu">
+                               <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50" width="50"></a>
+                                     <ul class="submenu">
+    
+                                        <li><a href="#">agregar preferencias</a></li>
+                                        <li><a href="#">editar perfil</a></li>
+    
+                                     </ul>
+                            </li>
+                            </ul>
+                        </nav>
+                <div class="header">
+
+                        {% for logo in logo %}
+                        <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                        {% endfor %}
+
+              
+                    <div>
+                      
+                 
+                                
+                       
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="backgroundnav col-xs-12">
+                <div class="nav">
+                    <ul>
+                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
+                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
+                        <li><a href="/logout">SALIR</a>    
+                            <!--<li><a href="">EMPEZAR</a>-->
+                    </ul>
+                </div>
+
+                
+
+
+
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="background_menu_user col-xs-12 col-lg-3 first-md">
+                <h3>Hey, bienvenido {{ user.username | upper }}</h3>
+                <nav id="nav_user">
+                    <ul>
+                        <li>
+                            <a  href="#">Agregar torpedo</a>
+                        </li>
+                        <li>
+                            <a  href="#">Mis aportes</a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </div>
+
+            <div class="contenido-formulario col-xs-12 col-lg-9 center-xs">
+
+                    {% block formulario %}
+                    <h2>Agregar Preferencias</h2>
+                    <form method="POST">{% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Guardar</button>
+                    </form>
+                {% endblock %}
+                
+                 
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="background_right_user col-xs-12">
+                <div>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

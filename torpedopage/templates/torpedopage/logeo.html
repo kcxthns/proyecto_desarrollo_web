@@ -1,0 +1,42 @@
+
+{% block content %}
+
+
+
+<form id="formulario_logueo"  method="POST">{% csrf_token %}
+                                
+    <div class="row">
+        <div class="col-xs-12 col-md-12 center-xs">
+            <label for="username">Usuario</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 center-xs ">
+            <input type="text" name="username">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 center-xs">
+            <label for="username">Contraseña</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 center-xs ">
+            <input type="password" name="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 center-xs">
+            <!--<input type="submit">-->
+            <button type="submit" id="boton_logueo">Ingresar</button>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}
+
+
+
+

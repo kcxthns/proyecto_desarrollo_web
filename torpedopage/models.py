@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class TextoPagina(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -20,3 +21,34 @@ class ImagenGaleria(models.Model):
     nombre = models.CharField(primary_key=True, max_length=200, help_text="Debe contener la palabra galeria")
     descripcion = models.CharField(max_length=250, help_text="Descripción que aparecerá al pie de la foto en la galería")
     imagen = models.ImageField(upload_to='media/galeria')
+
+
+
+class PreferenciasUsuario(models.Model):
+    usuario = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    preferencia = models.CharField(max_length=100)
+    idioma = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.preferencia
+
+
+class Torpedo(models.Model):
+    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)  
+    titulo = models.CharField(max_length=100) 
+    fecha_creacion = models.DateTimeField(
+        default=timezone.now)
+    fecha_publicacion = models.DateTimeField(blank=True, null=True) 
+    materia = models.CharField(max_length=200)
+    like = models.IntegerField(default=0, blank=True, null=True) 
+    media = models.FileField(upload_to='torpedos/')
+
+    def fecha(self):
+        self.fecha_publicacion = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.materia    
+
+
+

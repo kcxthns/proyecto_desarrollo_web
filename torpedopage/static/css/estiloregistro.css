@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.sidebarizquierda {
+    text-align: start;
+    padding: 10px;
+    font-family: 'Monoton';
+    font-weight: lighter;
+}
+
+.sidebackground {
+    background: #e24e42;
+    /*border-radius: 0.5em;*/
+    /*margin-bottom: 1%;*/
+}
+
+.sidebarizquierda h2 {
+    padding-bottom: 2%
+}
+
+.sidebarizquierda p {
+    font-family: 'Ubuntu Mono', monospace;
+    padding-bottom: 2%;
+}
+
+.backgroundfomulario {
+    background: #008f95;
+    /*border-radius: 0.5em;*/
+    padding-bottom: 2%;
+    /*margin-bottom: 1%;*/
+}
+
+.contenedorformulario {
+    text-align: left;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.contenedorformulario h2 {
+    font-family: 'Monoton';
+    padding-bottom: 2%
+}
+
+ input[type="checkbox"] {
+    display: none;
+}
+
+ .checkbox label {
+    background: orange;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 120px;
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+ .checkbox label:hover {
+    background: #c45529;
+    /* poner en rgb rgb(0,313,123,0.3)*/
+}
+
+ input[type="checkbox"]:checked {
+    display: table-column;
+}
+
+input {
+    float: left;
+    width: 200px;
+    margin-bottom: 10px;
+    border-radius: 0.5em;
+    border: none;
+    color: #212121;
+    height: 30px;
+    padding: 3px;
+}
+
+.radiobtn{
+    color: #212121;
+    float: none;
+    width: 1%;
+    margin-bottom: 0%;
+    border-radius: 0%;
+    border: #212121;
+    height: 1%;
+    padding: 0%;
+    display: inline-block;
+    position: relative;
+}
+
+.boxbackground{
+    background: #212121;
+}
+
+label {
+    clear: both;
+    float: left;
+    width: 180px;
+    margin: 5px;
+}
+
+select {
+    width: 200px;
+    float: left;
+    margin-bottom: 10px;
+    color: #212121;
+    height: 30px;
+    background: #FFAB00;
+}
+
+select:hover {
+    background: #c45529;
+}
+
+option {
+    background: #FFAB00;
+}
+
+/*.error-control {
+    border: 1px solid red;
+}*/
+
+label.error {
+    color: red;
+    width: 300px;
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    text-align: right;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+    float: right;
+    clear: both;
+    width: 100px;
+    height: 50px;
+    margin-right: 20%;
+    margin-top: 2%;
+    background: #FFAB00;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #c45529;
+    text-shadow: 2px 2px 2px orange;
+}
+
+.labeltitulo {
+    padding: 0%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    font-size: 150%;
+    color: #FFAB00
+}
