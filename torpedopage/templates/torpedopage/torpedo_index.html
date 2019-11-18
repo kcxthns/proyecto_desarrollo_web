@@ -42,10 +42,11 @@
                     <ul>
                         <li><a href="{% static 'torpedo_index' %}">HOME</a></li>
                         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
-                        <li><a href="{% url 'empezar' %}">EMPEZAR</a> 
                             {% if user.is_authenticated %}
                              <li><a href="{% url 'user_page' %}">TORPEDOS</a>
                              <li><a href="/logout">SALIR</a>
+                            {% else %}
+                            <li><a href="{% url 'empezar' %}">EMPEZAR</a> 
                             {% endif %}   
                     </ul>
                 </div>
@@ -64,14 +65,6 @@
                                 <section class="flex-caption"></section>
                             </li>
                             {% endfor %}
-                            <!--<li>
-                                    <img src="2.png" alt="imagen2">
-                                    <section class="flex-caption"></section>
-                                </li>
-                                <li>
-                                    <img src="imagenes/3.png" alt="imagen3">
-                                    <section class="flex-caption"></section>
-                                </li>-->
                         </ul>
                     </div>
                 </div>
@@ -80,8 +73,13 @@
             <div class="col-xs-12 col-md-3 first-md sidebarizquierdabackground">
                 <div class="sidebarizquierda">
                     <div>
+                        {% if user.is_authenticated %}
                         <h3>Hey, bienvenido!!! {{ user.username | upper }}</h3>
-                        
+                        {% for textoLogueado in textoLogueado %}
+                            <p>{{ textoLogueado.texto|linebreaksbr }}</p>
+                        {% endfor %}
+                        {% else %}
+                        <h3>Hey, bienvenido!!!</h3>
                         <p>
                             ¿Buscas ese esquivo y legendario apunte?
                         </p>
@@ -148,6 +146,7 @@
                                 target="_blank">Olvidaste
                                 la contraseña??</a>
                         </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -155,15 +154,7 @@
 
 
         <div class="row">
-            <div class="col-xs-12 piebackground">
-                <div class="pie">
-                    <h2>Síguenos:</h2>
-                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50"
-                            width="50"></a>
-                </div>
-            </div>
+          {% include "redes_sociales.html" %}
         </div>
 
         <!--Footer pie de pagina-->

@@ -27,20 +27,9 @@
                             </ul>
                         </nav>
                 <div class="header">
-
                         {% for logo in logo %}
                         <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
                         {% endfor %}
-
-              
-                    <div>
-                      
-                 
-                                
-                       
-                       
-                        
-                    </div>
                 </div>
             </div>
         </header>
@@ -52,14 +41,9 @@
                         <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
                         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
                         <li><a href="/logout">SALIR</a>    
-                            <!--<li><a href="">EMPEZAR</a>-->
+                            <li><a href="">EMPEZAR</a>
                     </ul>
                 </div>
-
-                
-
-
-
             </div>
         </nav>
 
@@ -72,36 +56,28 @@
                             <a  href="#">Agregar torpedo</a>
                         </li>
                         <li>
-                            <a  href="#">Mis aportes</a>
+                            <a  href="{% url 'archivo_torpedo' %}">Mis aportes</a>
                         </li>
                     </ul>
                 </nav>
-
-
             </div>
-
+      
             <div class="contenido-formulario col-xs-12 col-lg-9 center-xs">
 
-                    {% block torpedos %}
+                    {% block vertorpedos %}
                     <h2>Agregar el glorioso torpedo</h2>
-                    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">Guardar</button>
                     </form>
-                {% endblock %}
-                
-                 
-
-
+                    {% endblock vertorpedos %}
             </div>
         </div>
+        
 
         <div class="row">
             <div class="background_right_user col-xs-12">
-                <div>
-                    {% block content %}
-                    {% endblock %}
-                </div>
             </div>
         </div>
     </div>

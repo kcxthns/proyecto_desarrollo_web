@@ -14,32 +14,24 @@
         <header class="row">
             <div class="col-xs-12 col-lg-12 center-xs">
 
-                    <nav class="navegacion">
-                            <ul class="menu">
-                               <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50" width="50"></a>
-                                     <ul class="submenu">
-    
-                                        <li><a href="{% url 'preferencias' %}">agregar preferencias</a></li>
-                                        <li><a href="#">editar perfil</a></li>
-    
-                                     </ul>
-                            </li>
+                <nav class="navegacion">
+                    <ul class="menu">
+                        <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50"
+                                    width="50"></a>
+                            <ul class="submenu">
+
+                                <li><a href="{% url 'preferencias' %}">agregar preferencias</a></li>
+                                <li><a href="#">editar perfil</a></li>
+
                             </ul>
-                        </nav>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="header">
-
-                        {% for logo in logo %}
-                        <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
-                        {% endfor %}
-
-              
+                    {% for logo in logo %}
+                    <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+                    {% endfor %}
                     <div>
-                      
-                 
-                                
-                       
-                       
-                        
                     </div>
                 </div>
             </div>
@@ -51,15 +43,10 @@
                     <ul>
                         <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
                         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
-                        <li><a href="/logout">SALIR</a>    
+                        <li><a href="/logout">SALIR</a>
                             <!--<li><a href="">EMPEZAR</a>-->
                     </ul>
                 </div>
-
-                
-
-
-
             </div>
         </nav>
 
@@ -69,15 +56,13 @@
                 <nav id="nav_user">
                     <ul>
                         <li>
-                            <a  href="{% url 'agregartorpedo' %}">Agregar torpedo</a>
+                            <a href="{% url 'agregartorpedo' %}">Agregar torpedo</a>
                         </li>
                         <li>
-                            <a  href="#">Mis aportes</a>
+                            <a href="#">Mis aportes</a>
                         </li>
                     </ul>
                 </nav>
-
-
             </div>
 
             <div class="seccion_buscar col-xs-12 col-lg-9 center-xs">
@@ -91,8 +76,11 @@
         <div class="row">
             <div class="background_right_user col-xs-12">
                 <div>
-                    {% block content %}
+                    {% block content %} 
                     {% endblock %}
+                    <!--{% for torpedos in torpedos %}
+                    {{ torpedos.titulo }}
+                    {% endfor %}-->
                 </div>
             </div>
         </div>
