@@ -37,13 +37,14 @@
 
         <nav class="row">
             <div class="backgroundnav col-xs-12">
-                <div class="nav">
+               <!--<div class="nav">
                     <ul>
                         <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
                         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
                         <li><a href="">EMPEZAR</a>
                     </ul>
-                </div>
+                </div>-->
+                {% include "torpedopage/menubar.html" %}
             </div>
         </nav>
 
@@ -97,29 +98,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="piebackground col-xs-12">
-                <div class="pie">
-                    <h2>Síguenos:</h2>
-                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50" width="50"></a>
-                </div>
-            </div>
+            {% include "torpedopage/redes_sociales.html" %}
         </div>
 
         <!--Es el pie de la pagina-->
         <footer class="row bottom-xs">
-            <div class="col-xs-12">
-                <div class="footer">
-                    <h5>Desarrollado por MadCompany</h5>
-                    <p>
-                        <a href="#">
-                            <img style="border:0;width:88px;height:31px"
-                                src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
-                        </a>
-                    </p>
-                </div>
-            </div>
+          {% include "torpedopage/footer.html" %}
         </footer>
     </div>
 </body>

@@ -28,13 +28,7 @@
 
         <nav class="row">
             <div class="col-xs-12 backgroundnav">
-                <div class="nav">
-                    <ul>
-                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
-                        <li><a href="">NOSOTROS</a>
-                        <li><a href="{% url 'empezar' %}">EMPEZAR</a>
-                    </ul>
-                </div>
+                {% include "torpedopage/menubar.html" %}
             </div>
         </nav>
         <!--Contenido-->
@@ -60,51 +54,22 @@
                     <div class="down">
                         {% for imagenGaleria in imagenGaleria %}
                         <a href="{{ imagenGaleria.imagen.url }}" data-fancybox="gallery"
-                            data-caption="{{ imagenGaleria.descripcion }}"><img
-                                src="{{ imagenGaleria.imagen.url }}" alt="{{ imagenGaleria.nombre }}" width="300" height="200"></a>
+                            data-caption="{{ imagenGaleria.descripcion }}"><img src="{{ imagenGaleria.imagen.url }}"
+                                alt="{{ imagenGaleria.nombre }}" width="300" height="200"></a>
                         {% endfor %}
-                        <!--<a href="imagenes/jaramillo_the_last.jpeg" data-fancybox="gallery"
-                                data-caption="El mas grande de todos"><img src="imagenes/jaramillo_the_last.jpeg" alt="imagen Nosotros"
-                                    width="300" height="200"></a>
-                            <a href="imagenes/gal3.jpg" data-fancybox="gallery"
-                                data-caption="Dale like si el material que vez te gusta"><img src="imagenes/gal3.jpg" alt="imagen Nosotros"
-                                    width="300" height="200"></a>
-                            <a href="imagenes/gal1.jpg" data-fancybox="gallery"><img src="imagenes/gal1.jpg" width="300" alt="imagen Nosotros"
-                                    height="200"></a>
-                            <a href="imagenes/gal2.jpg" data-fancybox="gallery"><img src="imagenes/gal2.jpg" width="300" alt="imagen Nosotros"
-                                    height="200"></a>
-                            <a href="imagenes/gal3.jpg" data-fancybox="gallery"><img src="imagenes/gal3.jpg" width="300" alt="imagen Nosotros"
-                                    height="200"></a>-->
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="piebackground col-xs-12">
-                <div class="pie">
-                    <h2>Síguenos:</h2>
-                    <a href="#"><img src="{% static 'imagenes/face.svg' %}" alt="Facebook" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/twitter.svg' %}" alt="Twitter" height="50" width="50"></a>
-                    <a href="#"><img src="{% static 'imagenes/instagram.svg' %}" alt="Instagram" height="50"
-                            width="50"></a>
-                </div>
-            </div>
+            {% include "torpedopage/redes_sociales.html" %}
         </div>
 
         <!--Footer-->
         <footer class="row">
-            <div class="col-xs-12">
-                <div class="footer">
-                    <h5>Desarrollado por MadCompany</h5>
-                </div>
-            </div>
+            {% include "torpedopage/footer.html" %}
         </footer>
     </div>
-
-
-
 </body>
-
-
 </html>

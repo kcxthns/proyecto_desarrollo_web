@@ -14,7 +14,7 @@
         <header class="row">
             <div class="col-xs-12 col-lg-12 center-xs">
 
-                <nav class="navegacion">
+                <!--<nav class="navegacion">
                     <ul class="menu">
                         <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50"
                                     width="50"></a>
@@ -26,7 +26,8 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav>-->
+
                 <div class="header">
                     {% for logo in logo %}
                     <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
@@ -39,16 +40,18 @@
 
         <nav class="row">
             <div class="backgroundnav col-xs-12">
-                <div class="nav">
-                    <ul>
-                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
-                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
-                        <li><a href="/logout">SALIR</a>
-                            <!--<li><a href="">EMPEZAR</a>-->
-                    </ul>
-                </div>
+                {% include "torpedopage/menubar.html" %}
             </div>
         </nav>
+
+        <div class="row">
+            <div class="seccion_buscar col-xs-12 center-xs">
+                <form action="#" method="GET">
+                    <input class="input_buscar" type="search">
+                    <button class="botton_buscar" type="submit">Buscar Torpedo</button>
+                </form>
+            </div>
+        </div>
 
         <div class="row">
             <div class="background_menu_user col-xs-12 col-lg-3 first-md">
@@ -59,31 +62,32 @@
                             <a href="{% url 'agregartorpedo' %}">Agregar torpedo</a>
                         </li>
                         <li>
-                            <a href="#">Mis aportes</a>
+                            <a href="{% url 'mis_aportes' %}">Mis aportes</a>
                         </li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="seccion_buscar col-xs-12 col-lg-9 center-xs">
-                <form action="#" method="GET">
-                    <input class="input_buscar" type="search">
-                    <button class="botton_buscar" type="submit">Buscar Torpedo</button>
-                </form>
+            <div class="background_right_user col-xs-12 col-lg-9">
+                <div class="box">
+                    {% block agregartorpedos %}
+                    {% endblock %}
+                    <div class="row">
+                        {% block vertorpedos %}
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="background_right_user col-xs-12">
-                <div>
-                    {% block content %} 
-                    {% endblock %}
-                    <!--{% for torpedos in torpedos %}
-                    {{ torpedos.titulo }}
-                    {% endfor %}-->
-                </div>
-            </div>
+            {% include "torpedopage/redes_sociales.html" %}
         </div>
+
+        <!--Footer-->
+        <footer class="row">
+            {% include "torpedopage/footer.html" %}
+        </footer>
     </div>
 </body>
 

@@ -7,13 +7,54 @@
     background: #c44d58;
 }
 
+/* agregar torpedo sección*/
+
+.background_right_user h2{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.background_right_user form{
+    text-align: center;
+    
+}
+
+.background_right_user form label{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    display: block;
+}
+
+.background_right_user form input{
+    border-radius: 0.5em;
+    border: none;
+    color: #212121;
+    padding: 0.2%;
+}
+
+.background_right_user form select{
+    color: #212121;
+    background: #FFAB00;
+}
+
+.background_right_user form button{
+    margin-left: 2%;
+    background: #FFAB00;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: bold;
+    padding: 1%
+}
 
 /*  icono usuario*/
 .navegacion{
-    width: 50px;
-  
-    
-    
+    width: 50px;  
 }
 
 .navegacion ul{
@@ -75,18 +116,18 @@
 
 #nav_user ul li:hover{
     background:orange;
-
+    
 }
 
 #nav_user > ul{
-    text-align: left;
-    
+    text-align: center;
 }
 
 #nav_user > ul > li{
     list-style: none;
     display: list-item;
     padding: 1.5%;
+    margin-left: -4%;
    
 }
 
@@ -104,17 +145,39 @@
 
 .background_menu_user h3{
     color: #E1F5FE;
+    text-align: center;
+    padding-left: 1.5%;
 }
 
 .input_buscar{
     border-radius: 0.5em;
+    color: black;
 }
 
 .botton_buscar{
     margin-left: 2%;
-    padding: 0.4%;
-    border: none;
+    background: #FFAB00;
     border-radius: 0.5em;
-    /*font-weight: bold;*/
-    width: 10%;
+    border: none;
+    font-weight: bold;
+    padding: 1%
+}
+
+.aportes{
+    padding: 1%;
+    width: 31%;
+}
+.aportes_box{
+    background: #CC505C;
+    padding: 0.5%;
+    margin: 1%;
+}
+
+.aportes_box p{
+    margin-left: 1%;
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
 }

@@ -1,0 +1,16 @@
+{% extends 'torpedopage/base_user.html' %}
+
+{% block vertorpedos %}
+{% for torpedos in torpedos %}
+
+<div class="aportes">
+    <div class="aportes_box">
+        <h2>{{ torpedos.titulo }}</h2>
+        <!--<p>Fecha de Creación: {{ torpedos.fecha_creacion }}</p>-->
+        <p>Materia: {{ torpedos.materia }}</p>
+        <p>Likes: {{ torpedos.like }}</p>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

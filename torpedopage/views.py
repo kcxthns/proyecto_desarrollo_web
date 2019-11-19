@@ -28,15 +28,13 @@ from torpedopage.models import TextoPagina
 
 
 
-
+logo = ImagenPage.objects.filter(descripcion='logo torpedo')
 
 def nosotros(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     imagenGaleria = ImagenGaleria.objects.filter(nombre__icontains='galeria')
     return render(request, 'torpedopage/nosotros.html', {'logo': logo, 'imagenGaleria': imagenGaleria})
 
 def empezar(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     if request.method == "POST":
         form = RegistroForm(request.POST)
         if form.is_valid():
@@ -49,13 +47,11 @@ def empezar(request):
             
 
 def base_user(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     usuario = request.user
     torpedos = Apunte.objects.filter(autor=usuario)
     return render(request, 'torpedopage/base_user.html', {'logo': logo, 'torpedos': torpedos}) 
 
 def login(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     imagenSlider = ImagenPage.objects.filter(descripcion__icontains='slider')
     textoLogueado = TextoPagina.objects.filter(descripcion__icontains='texto_index_usuario_logueado')
     form = LoginForm()
@@ -78,7 +74,6 @@ def logout(request):
     return redirect('/')
 
 def preferencias(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     if request.method == "POST":
         form = PreferenciaForm(request.POST)
         if form.is_valid():
@@ -91,7 +86,7 @@ def preferencias(request):
     return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})   
 
 def agregartorpedo(request):
-    logo = ImagenPage.objects.filter(descripcion='logo torpedo')
+    #logo = ImagenPage.objects.filter(descripcion='logo torpedo')
     #if request.method == 'POST':
         #form = TorpedoForm(request.POST, request.FILES)
         #if form.is_valid():
@@ -117,11 +112,7 @@ def agregartorpedo(request):
 def archivoTorpedo(request):
     usuario = request.user
     torpedos = Apunte.objects.filter(autor=usuario)
-    return render(request, 'torpedopage/archivo_torpedo.html', {'torpedos': torpedos, })
-            
-
-    
-    
+    return render(request, 'torpedopage/mis_aportes.html', {'logo': logo, 'torpedos': torpedos, })
 
   
 

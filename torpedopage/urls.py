@@ -13,7 +13,7 @@ urlpatterns = [
     path('logout', views.logout),
     path('preferencias', views.preferencias, name='preferencias'),
     path('agregartorpedo', views.agregartorpedo, name='agregartorpedo'),
-    path('archivo_torpedo', views.archivoTorpedo, name='archivo_torpedo')
+    path('mis_aportes', views.archivoTorpedo, name='mis_aportes')
     
 
     
