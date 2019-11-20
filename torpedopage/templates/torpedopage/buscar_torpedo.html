@@ -1,0 +1,30 @@
+{% extends 'torpedopage/base_user.html' %}
+
+{% block buscar_torpedo %}
+<div class="seccion_buscar col-xs-12 center-xs">
+    <form action="" method="GET">{% csrf_token %}
+        <input class="input_buscar" type="search" name="busqueda">
+        <button class="botton_buscar" type="submit">Buscar Torpedo</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block encontrados %}
+{% for torpedos_encontrados in torpedos_encontrados %}
+<div class="aportes">
+    <div class="aportes_box">
+        <h2>{{ torpedos_encontrados.titulo }}</h2>
+        <!--<p>Fecha de Creación: {{ torpedos.fecha_creacion }}</p>-->
+        <p>Materia: {{ torpedos_encontrados.materia }}</p>
+        <p>Likes: {{ torpedos_encontrados.like }}</p>
+        <form action="{{ torpedos_encontrados.documento.url }}">
+            <input type="submit" value="Descargar" />
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block titulo_block %}
+<h2>Resultados búsqueda:</h2>
+{% endblock %}

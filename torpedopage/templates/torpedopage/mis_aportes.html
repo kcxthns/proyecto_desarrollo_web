@@ -9,6 +9,13 @@
         <!--<p>Fecha de Creación: {{ torpedos.fecha_creacion }}</p>-->
         <p>Materia: {{ torpedos.materia }}</p>
         <p>Likes: {{ torpedos.like }}</p>
+        <form action="{{ torpedos.documento.url }}">
+            <input type="submit" value="Descargar"/>
+        </form>
+        <form action="" method="POST">{% csrf_token %}
+            <input type="hidden" name="id" value="{{ torpedos.id }}"/>
+            <input type="submit" value="Borrar">
+        </form>
     </div>
 </div>
 

@@ -45,12 +45,14 @@
         </nav>
 
         <div class="row">
-            <div class="seccion_buscar col-xs-12 center-xs">
-                <form action="#" method="GET">
+            <!--<div class="seccion_buscar col-xs-12 center-xs">
+                <form action="" method="GET">{% csrf_token %}
                     <input class="input_buscar" type="search">
                     <button class="botton_buscar" type="submit">Buscar Torpedo</button>
                 </form>
-            </div>
+            </div>-->
+            {% block buscar_torpedo %}
+            {% endblock %}
         </div>
 
         <div class="row">
@@ -58,6 +60,9 @@
                 <h3>Hey, bienvenido {{ user.username | upper }}</h3>
                 <nav id="nav_user">
                     <ul>
+                        <li>
+                            <a href="{% url 'buscar_torpedo' %}">Buscar torpedo</a>
+                        </li>
                         <li>
                             <a href="{% url 'agregartorpedo' %}">Agregar torpedo</a>
                         </li>
@@ -69,16 +74,29 @@
             </div>
 
             <div class="background_right_user col-xs-12 col-lg-9">
+                {% block titulo_block %}
+                {% endblock %}
                 <div class="box">
                     {% block agregartorpedos %}
                     {% endblock %}
                     <div class="row">
                         {% block vertorpedos %}
                         {% endblock %}
+
+                        {% block encontrados %}
+                        {% endblock %}
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--<div class="col-xs-12">
+            {% for torpedos in torpedos %}
+            <iframe src="https://docs.google.com/gview?url={{ torpedos.documento.url }}&embedded=true"></iframe>
+            
+            <a href="{{ torpedos.documento.url }}"> Archivo</a>
+            {% endfor %}
+        </div>-->
 
         <div class="row">
             {% include "torpedopage/redes_sociales.html" %}

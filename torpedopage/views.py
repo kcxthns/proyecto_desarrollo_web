@@ -86,18 +86,6 @@ def preferencias(request):
     return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})   
 
 def agregartorpedo(request):
-    #logo = ImagenPage.objects.filter(descripcion='logo torpedo')
-    #if request.method == 'POST':
-        #form = TorpedoForm(request.POST, request.FILES)
-        #if form.is_valid():
-            #Torpedo = form.save(commit=False)
-            #Torpedo.autor = request.user
-            #Torpedo.fecha_publicacion = timezone.now()
-            #Torpedo.save()
-            #form.save()
-            #return redirect('user_page')
-    #else:
-        #form = TorpedoForm()
     if request.method == 'POST':
         form = ApunteForm(request.POST, request.FILES)
         if form.is_valid():
@@ -112,13 +100,22 @@ def agregartorpedo(request):
 def archivoTorpedo(request):
     usuario = request.user
     torpedos = Apunte.objects.filter(autor=usuario)
+    
+    if request.method == 'POST':
+        autor = request.user
+        id_torpedo = request.POST.get('id')
+        torpedoBorrar = Apunte.objects.get(autor=autor, id=id_torpedo)
+        torpedoBorrar.delete()
+        
     return render(request, 'torpedopage/mis_aportes.html', {'logo': logo, 'torpedos': torpedos, })
 
-  
-
-   
-
-
+def buscarTorpedo(request):
+    if request.method == 'GET':
+        criterio_busqueda = request.GET.get("busqueda")
+        if criterio_busqueda is None:
+            criterio_busqueda = '?'
+        torpedos_encontrados = Apunte.objects.filter(titulo__icontains=criterio_busqueda)
+    return render(request, 'torpedopage/buscar_torpedo.html', {'logo': logo, 'torpedos_encontrados': torpedos_encontrados})
 
    
  
