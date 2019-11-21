@@ -65,11 +65,18 @@
     display: table-cell;
 }*/
 
-/*.logueo label{
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}*/
+.form_cambiar_contrasenna{
+    text-align: left;
+    padding: 1%;
+}
+.form_cambiar_contrasenna input{
+    margin-bottom: 5%;
+}
+
+.form_cambiar_contrasenna label{
+    margin-top: 5%;
+
+}
 
 .logueo input {
     /*display: inline-block;

@@ -67,7 +67,7 @@ def login(request):
                 do_login(request, user)
 
                 return redirect('user_page') 
-    return render(request, "torpedopage/torpedo_index.html", {'form': form, 'logo': logo, 'imagenSlider': imagenSlider, 'textoLogueado': textoLogueado})      
+    return render(request, "torpedopage/torpedo_index.html", {'logo': logo, 'imagenSlider': imagenSlider, 'textoLogueado': textoLogueado})      
 
 def logout(request):
     do_logout(request)
