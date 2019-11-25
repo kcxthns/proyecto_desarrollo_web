@@ -23,6 +23,7 @@ from .models import PreferenciasUsuario
 from .models import Apunte
 from django.utils import timezone
 from torpedopage.models import TextoPagina
+from django.contrib import messages
 
 
 
@@ -55,18 +56,22 @@ def login(request):
     imagenSlider = ImagenPage.objects.filter(descripcion__icontains='slider')
     textoLogueado = TextoPagina.objects.filter(descripcion__icontains='texto_index_usuario_logueado')
     form = LoginForm()
-    if request.method == "POST":
+    if request.method == 'POST':
         form = LoginForm(data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-
-            user = authenticate(username=username, password = password)
-
-            if user is not None:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            if user.is_active:
                 do_login(request, user)
-
-                return redirect('user_page') 
+                if user.is_staff:
+                    return redirect('admin/')
+                else:
+                    return redirect('user_page')
+        else:
+            messages.error(request, 'Nombre de usuario o contraseña incorrectos!!!')
+            return redirect("/")
     return render(request, "torpedopage/torpedo_index.html", {'logo': logo, 'imagenSlider': imagenSlider, 'textoLogueado': textoLogueado})      
 
 def logout(request):

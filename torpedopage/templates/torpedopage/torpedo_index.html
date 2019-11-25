@@ -110,6 +110,7 @@
                                             <input type="password" name="password">
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="col-xs-12 center-xs">
                                             <button type="submit" id="boton_logueo">Ingresar</button>
@@ -124,6 +125,11 @@
                                 target="_blank">Olvidaste
                                 la contraseña??</a>
                         </p>
+                        {% for message in messages %}
+                            <p>
+                                {{ message }}
+                            </p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                 </div>
@@ -139,7 +145,6 @@
             {% include "torpedopage/footer.html" %}
         </footer>
     </div>
-
 </body>
 
 </html>
