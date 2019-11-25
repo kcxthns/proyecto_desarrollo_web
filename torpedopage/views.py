@@ -116,13 +116,22 @@ def archivoTorpedo(request):
 
 def buscarTorpedo(request):
     if request.method == 'GET':
-        criterio_busqueda = request.GET.get("busqueda")
-        if criterio_busqueda is None:
-            criterio_busqueda = '?'
-        torpedos_encontrados = Apunte.objects.filter(titulo__icontains=criterio_busqueda)
-    return render(request, 'torpedopage/buscar_torpedo.html', {'logo': logo, 'torpedos_encontrados': torpedos_encontrados})
+        criterio_busqueda = request.GET.get("q")
+        submitbutton = request.GET.get('submit')
 
-   
- 
+        if criterio_busqueda is not None:
+            torpedos_encontrados= Apunte.objects.filter(titulo__icontains=criterio_busqueda)
+            context = {'logo': logo, 'torpedos_encontrados':torpedos_encontrados, 'submitbutton':submitbutton}
+            return render(request, 'torpedopage/buscar_torpedo.html', context)
+        else:
+            return render(request, 'torpedopage/buscar_torpedo.html', {'logo':logo})
+    else:
+        return render(request, 'torpedopage/buscar_torpedo.html', {'logo': logo})
+
+def passwordResetCompleto(request):
+    return render(request, 'registration/password_reset_complete_custom.html', {'logo':logo})
+
+def logoPagina(request):
+    return render(request, 'torpedopage/logo.html', {'logo':logo})
     
     

@@ -28,9 +28,7 @@
         <header class="row">
             <div class="col-xs-12 col-lg-12 center-xs">
                 <div class="header">
-                    {% for logo in logo %}
-                    <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
-                    {% endfor %}
+                    {% include "torpedopage/logo.html" %}
                 </div>
             </div>
         </header>

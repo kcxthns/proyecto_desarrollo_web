@@ -3,13 +3,18 @@
 {% block buscar_torpedo %}
 <div class="seccion_buscar col-xs-12 center-xs">
     <form action="" method="GET">{% csrf_token %}
-        <input class="input_buscar" type="search" name="busqueda">
-        <button class="botton_buscar" type="submit">Buscar Torpedo</button>
+        <input class="input_buscar" type="search" value="{{request.GET.q}}" name="q" placeholder="Buscar torpedos">
+        <button name="submit" class="botton_buscar" type="submit" value="Search">Buscar Torpedo</button>
     </form>
 </div>
 {% endblock %}
 
+
+
 {% block encontrados %}
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if torpedos_encontrados %}
 {% for torpedos_encontrados in torpedos_encontrados %}
 <div class="aportes">
     <div class="aportes_box">
@@ -23,8 +28,21 @@
     </div>
 </div>
 {% endfor %}
+
+{% else %}
+    <h2 class="col-xs-12">No se encontraron torpedos :(</h2>
+{% endif %}
+{% endif %}
+
 {% endblock %}
 
+
+
 {% block titulo_block %}
+{% if submitbutton == 'Search' and request.GET.q != '' %}
 <h2>Resultados búsqueda:</h2>
+{% else %}
+<h2>Aquí van tus Resultados!</h2>
+<h2>Así que ve e ingresa algo para que podamos hacer nuestra magia</h2>
+{% endif %}
 {% endblock %}
