@@ -14,20 +14,6 @@
         <header class="row">
             <div class="col-xs-12 col-lg-12 center-xs">
 
-                <!--<nav class="navegacion">
-                    <ul class="menu">
-                        <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50"
-                                    width="50"></a>
-                            <ul class="submenu">
-
-                                <li><a href="{% url 'preferencias' %}">agregar preferencias</a></li>
-                                <li><a href="#">editar perfil</a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>-->
-
                 <div class="header">
                     {% include "torpedopage/logo.html" %}
                     <div>
@@ -43,19 +29,29 @@
         </nav>
 
         <div class="row">
-            <!--<div class="seccion_buscar col-xs-12 center-xs">
-                <form action="" method="GET">{% csrf_token %}
-                    <input class="input_buscar" type="search">
-                    <button class="botton_buscar" type="submit">Buscar Torpedo</button>
-                </form>
-            </div>-->
-            {% block buscar_torpedo %}
-            {% endblock %}
+
         </div>
 
         <div class="row">
             <div class="background_menu_user col-xs-12 col-lg-3 first-md">
+                <div class="box col-xs-1 first-xs">
+                    <div class="row">
+                        <nav class="navegacion">
+                            <ul class="menu">
+                                <li><a href="#"><img src="{% static 'imagenes/usuario.svg' %}" alt="user" height="50"
+                                            width="50"></a>
+                                    <ul class="submenu">z
+                                        <!--<li><a href="{% url 'preferencias' %}">agregar preferencias</a></li>-->
+                                        <li><a href="{% url 'password_change' %}">Cambiar Contraseña</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
                 <h3>Hey, bienvenido {{ user.username | upper }}</h3>
+
                 <nav id="nav_user">
                     <ul>
                         <li>
@@ -67,14 +63,20 @@
                         <li>
                             <a href="{% url 'mis_aportes' %}">Mis aportes</a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="{% url 'password_change' %}">Cambiar Contraseña</a>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
             </div>
 
             <div class="background_right_user col-xs-12 col-lg-9">
+                <div class="box">
+                    <div class="aportes_box">
+                        {% block buscar_torpedo %}
+                        {% endblock %}
+                    </div>
+                </div>
                 {% block titulo_block %}
                 {% endblock %}
                 <div class="box">
@@ -90,14 +92,6 @@
                 </div>
             </div>
         </div>
-
-        <!--<div class="col-xs-12">
-            {% for torpedos in torpedos %}
-            <iframe src="https://docs.google.com/gview?url={{ torpedos.documento.url }}&embedded=true"></iframe>
-            
-            <a href="{{ torpedos.documento.url }}"> Archivo</a>
-            {% endfor %}
-        </div>-->
 
         <div class="row">
             {% include "torpedopage/redes_sociales.html" %}

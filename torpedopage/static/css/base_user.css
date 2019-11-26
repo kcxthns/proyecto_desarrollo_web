@@ -3,6 +3,11 @@
     background: #008f95;
 }
 
+.background_menu_user h3{
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+}
+
 .background_right_user{
     background: #c44d58;
 }
@@ -157,7 +162,8 @@
 
 
 .seccion_buscar{
-    background: black;
+    background: #008f95;
+    border-radius: 0.5em;
     padding: 1%;
 }
 
