@@ -2,16 +2,16 @@
 <html>
 
 <head>
-  
+
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-   
+
     <!--<link rel="stylesheet" type="text/css" href="css\estilos.css">-->
     <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
-    <link rel="stylesheet"  href="{% static 'css/estiloregistro.css' %}">
-    <link rel="stylesheet"  href="{% static 'css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloregistro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
     <script src="{% static 'js\scriptsvalidation.js' %}"></script>
     <script src="{% static 'js/llenar_select.js' %}"></script>
     <script>
@@ -19,7 +19,7 @@
             $("#mi-formulario").validate();
         });  
     </script>
-    
+
     <title>Empezar</title>
 </head>
 
@@ -35,7 +35,7 @@
 
         <nav class="row">
             <div class="backgroundnav col-xs-12">
-               <!--<div class="nav">
+                <!--<div class="nav">
                     <ul>
                         <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
                         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
@@ -70,28 +70,45 @@
                 <div class="contenedorformulario">
                     <h2>Registro Usuario</h2>
                     {% block content %}
-                    <form  method="POST">
+                    <form method="POST">
 
                         {% csrf_token %}
                         <label>Email: </label>
-                        <input type="text" name="email" required placeholder="user@correo.com">
+                        <input type="text" name="email" required placeholder="user@correo.com" maxlength="250">
                         <label>Nombre Completo </label>
-                        <input type="text" name="first_name" required placeholder="juanito ">
+                        <input type="text" name="first_name" required placeholder="juanito " maxlength="250">
                         <label>Apellido </label>
-                        <input type="text" name="last_name" required placeholder="perez">
+                        <input type="text" name="last_name" required placeholder="perez" maxlength="250">
                         <label>Nombre de usuario</label>
-                        <input type="text" name="username" required placeholder="juaperez123">
-                    <!--<label>Apartado Contraseña</label>-->
-                    <label>Contraseña </label>
-                    <input type="password"  name="password1" minlength="8" placeholder="Contraseña">
-                    <label>Reingresa Contraseña </label>
-                    <input type="password" name="password2" minlength="8" placeholder="Repetir contraseña">
-                    
-                    <button type="submit">Enviar</button>
+                        <input type="text" name="username" required placeholder="juaperez123" maxlength="250">
+                        <!--<label>Apartado Contraseña</label>-->
+                        <label>Contraseña </label>
+                        <input type="password" name="password1" minlength="8" placeholder="Contraseña" maxlength="250">
+                        <label>Reingresa Contraseña </label>
+                        <input type="password" name="password2" minlength="8" placeholder="Repetir contraseña"
+                            maxlength="250">
 
-                   
+                        <button type="submit">Enviar</button>
+
                     </form>
                     {% endblock %}
+                </div>
+                <!--Errores en formulario-->
+                <div>
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="cambio_contrasenna">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="cambio_contrasenna">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -101,7 +118,7 @@
 
         <!--Es el pie de la pagina-->
         <footer class="row bottom-xs">
-          {% include "torpedopage/footer.html" %}
+            {% include "torpedopage/footer.html" %}
         </footer>
     </div>
 </body>

@@ -65,19 +65,6 @@
     display: table-cell;
 }*/
 
-.form_cambiar_contrasenna{
-    text-align: left;
-    padding: 1%;
-}
-.form_cambiar_contrasenna input{
-    margin-bottom: 5%;
-}
-
-.form_cambiar_contrasenna label{
-    margin-top: 5%;
-
-}
-
 .logueo input {
     /*display: inline-block;
     /*margin-left: 15%;
@@ -101,4 +88,26 @@
     padding: 1%
 }
 
+.reset_contrasenna{
+    text-align: center;
+}
 
+.reset_contrasenna input{
+    color: black;
+    border-radius: 0.5em;
+}
+
+.reset_button{
+    background: #FFAB00;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: bold;
+    padding: 0.5%;
+}
+
+.cambio_contrasenna{
+    padding: 0.5%;
+}
+.cambio_contrasenna input{
+    margin-right: 1%;
+}

@@ -18,6 +18,24 @@
     text-align: center;
 }
 
+.background_right_user h3{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.background_right_user p{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
 .background_right_user form{
     text-align: center;
     
@@ -140,7 +158,7 @@
 
 .seccion_buscar{
     background: black;
-    padding: 2%;
+    padding: 1%;
 }
 
 .background_menu_user h3{
