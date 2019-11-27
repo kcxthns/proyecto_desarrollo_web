@@ -1,6 +1,6 @@
 {% load static %}
 <html>
-
+<!--Página de inicio de Torpedo-->
 <head>
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
@@ -28,9 +28,7 @@
             <div class="col-xs-12 col-lg-12 center-xs">
                 <div class="header">
                     <div>
-                        {% for logo in logo %}
-                        <img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
-                        {% endfor %}
+                        {% include "torpedopage/logo.html" %}
                     </div>
                 </div>
             </div>
@@ -87,7 +85,7 @@
                         <div class="box">
 
                             <div class="logueo">
-
+                                <!--Formulario de login-->
                                 <form id="formulario_logueo" method="POST">{% csrf_token %}
 
                                     <div class="row">
@@ -110,21 +108,27 @@
                                             <input type="password" name="password">
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="col-xs-12 center-xs">
                                             <button type="submit" id="boton_logueo">Ingresar</button>
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                         <br>
                         <p>
-                            <a href="https://www.google.cl/search?source=hp&ei=-rKLXa3_FL3X5OUP1c2fiAo&q=mejorar+memoria&oq=mejorar+mem&gs_l=psy-ab.3.0.0l10.2226.4764..5990...0.0..0.137.731.9j2......0....1..gws-wiz.......0i131.Zwz-S-6WNx4"
+                            <a href="{% url 'password_reset' %}"
                                 target="_blank">Olvidaste
                                 la contraseña??</a>
                         </p>
+                        {% for message in messages %}
+                        <!--Mensaje de error de usuario o contraseña-->
+                            <p>
+                                {{ message }}
+                            </p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                 </div>
@@ -140,7 +144,6 @@
             {% include "torpedopage/footer.html" %}
         </footer>
     </div>
-
 </body>
 
 </html>

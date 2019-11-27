@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block agregartorpedos %}
-<h2>Agregar el glorioso torpedo</h2>
+<!--Formulario para agregar el documento a la base de datos-->
+<h2>Agregar tu glorioso torpedo</h2>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

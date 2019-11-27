@@ -1,0 +1,51 @@
+{% load static %}
+<!--Template base de reseteo de contraseñas-->
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/estilonav_pie.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloinicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}">
+
+    <title>Torpedo {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="col-xs-12 col-lg-12 center-xs">
+                <div class="header">
+                    <div>
+                        {% include 'torpedopage/logo.html' %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="row">
+            <div class="backgroundnav col-xs-12">
+                {% include "torpedopage/menubar.html" %}
+            </div>
+        </nav>
+
+        <div class="row sidebarizquierdabackground">
+            <div class="col-xs-12 sidebarizquierda">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+
+        <div class="row">
+            {% include "torpedopage/redes_sociales.html" %}
+        </div>
+
+        <!--Footer pie de pagina-->
+        <footer class="row">
+            {% include "torpedopage/footer.html" %}
+        </footer>
+    </div>
+</body>

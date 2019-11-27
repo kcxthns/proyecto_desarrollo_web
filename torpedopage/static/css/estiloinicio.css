@@ -65,12 +65,6 @@
     display: table-cell;
 }*/
 
-/*.logueo label{
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}*/
-
 .logueo input {
     /*display: inline-block;
     /*margin-left: 15%;
@@ -94,6 +88,26 @@
     padding: 1%
 }
 
+.reset_contrasenna{
+    text-align: center;
+}
 
+.reset_contrasenna input{
+    color: black;
+    border-radius: 0.5em;
+}
 
+.reset_button{
+    background: #FFAB00;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: bold;
+    padding: 0.5%;
+}
 
+.cambio_contrasenna{
+    padding: 0.5%;
+}
+.cambio_contrasenna input{
+    margin-right: 1%;
+}

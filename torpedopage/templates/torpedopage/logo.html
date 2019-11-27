@@ -1,0 +1,5 @@
+{% load static %}
+{% for logo in logo %}
+<!--Logo de la página sacado de una búsqueda en la bd-->
+<img src="{{ logo.imagen.url }}" alt="{{ logo.descripcion }}">
+{% endfor %}

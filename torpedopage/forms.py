@@ -7,7 +7,7 @@ from torpedopage.models import Apunte
 #from .models import Torpedo
 from torpedopage.models import Apunte
 
-
+#formulario de registro
 class RegistroForm(UserCreationForm):
     class Meta:
         model = User
@@ -23,7 +23,7 @@ class RegistroForm(UserCreationForm):
         'last_name': 'Apellido',
         'email': 'Email',
     }  
-
+#formulario de login
 class LoginForm(AuthenticationForm):
     class Meta:
         model = User
@@ -35,19 +35,13 @@ class LoginForm(AuthenticationForm):
         'username': 'username',
         'password' : 'password'
     }
-
+#Formulario de preferencias (no usado)
 class PreferenciaForm(forms.ModelForm):
 
     class Meta:
         model = PreferenciasUsuario
         fields = ('preferencia', 'idioma')
-
-#class TorpedoForm(forms.ModelForm):
-
-    #class Meta:
-        #model = Torpedo
-        #fields = ('titulo', 'materia', 'media',)
-
+#Formulario para subir Torpedo
 class ApunteForm(forms.ModelForm):
     class Meta:
         model = Apunte

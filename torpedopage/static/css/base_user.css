@@ -3,6 +3,11 @@
     background: #008f95;
 }
 
+.background_menu_user h3{
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+}
+
 .background_right_user{
     background: #c44d58;
 }
@@ -10,6 +15,24 @@
 /* agregar torpedo sección*/
 
 .background_right_user h2{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.background_right_user h3{
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: lighter;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.background_right_user p{
     font-family: 'Ubuntu Mono', monospace;
     font-style: normal;
     font-weight: lighter;
@@ -139,8 +162,9 @@
 
 
 .seccion_buscar{
-    background: black;
-    padding: 2%;
+    background: #008f95;
+    border-radius: 0.5em;
+    padding: 1%;
 }
 
 .background_menu_user h3{

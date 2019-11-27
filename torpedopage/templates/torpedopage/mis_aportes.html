@@ -1,8 +1,9 @@
 {% extends 'torpedopage/base_user.html' %}
 
 {% block vertorpedos %}
+{% if torpedos %}
 {% for torpedos in torpedos %}
-
+<!--Muestra los archivos (torpedos) que el usuario ha subido-->
 <div class="aportes">
     <div class="aportes_box">
         <h2>{{ torpedos.titulo }}</h2>
@@ -10,14 +11,22 @@
         <p>Materia: {{ torpedos.materia }}</p>
         <p>Likes: {{ torpedos.like }}</p>
         <form action="{{ torpedos.documento.url }}">
-            <input type="submit" value="Descargar"/>
+            <input type="submit" value="Descargar" />
         </form>
         <form action="" method="POST">{% csrf_token %}
-            <input type="hidden" name="id" value="{{ torpedos.id }}"/>
+            <input type="hidden" name="id" value="{{ torpedos.id }}" />
             <input type="submit" value="Borrar">
         </form>
     </div>
 </div>
 
 {% endfor %}
+{% else %}
+<!--En caso de que el usuario no tenga archivos (torpedos) agregados-->
+<div class="col-xs-12">
+    <h2>No haz realizado aportes!!!</h2>
+    <h3>Why?!!! Why?!!!</h3>
+    <p>Si no sabes cómo, bueno, solo ve al apartado Agregar torpedo y llena los campos, ¡es muuuuuyyy fácil!</p>
+</div>
+{% endif %}
 {% endblock %}
