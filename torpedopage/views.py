@@ -30,11 +30,11 @@ from django.contrib import messages
 
 
 logo = ImagenPage.objects.filter(descripcion='logo torpedo')
-
+#url nosotros
 def nosotros(request):
     imagenGaleria = ImagenGaleria.objects.filter(nombre__icontains='galeria')
     return render(request, 'torpedopage/nosotros.html', {'logo': logo, 'imagenGaleria': imagenGaleria})
-
+#url empezar
 def empezar(request):
     if request.method == "POST":
         form = RegistroForm(request.POST)
@@ -47,11 +47,12 @@ def empezar(request):
     return render(request, 'torpedopage/empezar.html', {'logo': logo, 'form': form})
             
 
-def base_user(request):
-    usuario = request.user
-    torpedos = Apunte.objects.filter(autor=usuario)
-    return render(request, 'torpedopage/base_user.html', {'logo': logo, 'torpedos': torpedos}) 
+#def base_user(request):
+    #usuario = request.user
+    #torpedos = Apunte.objects.filter(autor=usuario)
+    #return render(request, 'torpedopage/base_user.html', {'logo': logo, 'torpedos': torpedos}) 
 
+#Inicio página Torpedo
 def login(request):
     imagenSlider = ImagenPage.objects.filter(descripcion__icontains='slider')
     textoLogueado = TextoPagina.objects.filter(descripcion__icontains='texto_index_usuario_logueado')
@@ -74,10 +75,13 @@ def login(request):
             return redirect("/")
     return render(request, "torpedopage/torpedo_index.html", {'logo': logo, 'imagenSlider': imagenSlider, 'textoLogueado': textoLogueado})      
 
+#url logout
 def logout(request):
     do_logout(request)
     return redirect('/')
 
+#Para la vista de preferencias (no implementada) 
+"""
 def preferencias(request):
     if request.method == "POST":
         form = PreferenciaForm(request.POST)
@@ -89,7 +93,9 @@ def preferencias(request):
     else:
         form = PreferenciaForm()
     return render(request, 'torpedopage/preferencias.html', {'logo': logo, 'form': form})   
+"""
 
+#url agregar torpedo
 def agregartorpedo(request):
     if request.method == 'POST':
         form = ApunteForm(request.POST, request.FILES)
@@ -102,6 +108,7 @@ def agregartorpedo(request):
         form = ApunteForm()
     return render(request, 'torpedopage/agregartorpedo.html', {'logo': logo, 'form': form})
 
+#url mis_aportes
 def archivoTorpedo(request):
     usuario = request.user
     torpedos = Apunte.objects.filter(autor=usuario)
@@ -114,18 +121,22 @@ def archivoTorpedo(request):
         
     return render(request, 'torpedopage/mis_aportes.html', {'logo': logo, 'torpedos': torpedos, })
 
+#url buscar_torpedo
 def buscarTorpedo(request):
     if request.method == 'GET':
-        criterio_busqueda = request.GET.get("q")
-        submitbutton = request.GET.get('submit')
+        criterio_busqueda = request.GET.get("q")#El criterio de búsqueda ingresado en el formulario
+        submitbutton = request.GET.get('submit')#Ayuda a saber si se ha presionado el botón de búsqueda al menos una vez
 
         if criterio_busqueda is not None:
+            #Al encontrar resultados en la búsqueda...
             torpedos_encontrados= Apunte.objects.filter(titulo__icontains=criterio_busqueda)
             context = {'logo': logo, 'torpedos_encontrados':torpedos_encontrados, 'submitbutton':submitbutton}
             return render(request, 'torpedopage/buscar_torpedo.html', context)
         else:
+            #Al no encontrar resultados en la búsqueda
             return render(request, 'torpedopage/buscar_torpedo.html', {'logo':logo})
     else:
+        #Al entrar por primera vez al apartado buscar_torpedo
         return render(request, 'torpedopage/buscar_torpedo.html', {'logo': logo})
 
 def passwordResetCompleto(request):

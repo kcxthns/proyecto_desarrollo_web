@@ -35,13 +35,6 @@
 
         <nav class="row">
             <div class="backgroundnav col-xs-12">
-                <!--<div class="nav">
-                    <ul>
-                        <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
-                        <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
-                        <li><a href="">EMPEZAR</a>
-                    </ul>
-                </div>-->
                 {% include "torpedopage/menubar.html" %}
             </div>
         </nav>
@@ -69,9 +62,9 @@
             <div class="col-xs-12 col-lg-6 center-xs end-lg backgroundfomulario">
                 <div class="contenedorformulario">
                     <h2>Registro Usuario</h2>
-                    {% block content %}
+                    
                     <form method="POST">
-
+                        <!--Formulario registro-->
                         {% csrf_token %}
                         <label>Email: </label>
                         <input type="text" name="email" required placeholder="user@correo.com" maxlength="250">
@@ -91,9 +84,9 @@
                         <button type="submit">Enviar</button>
 
                     </form>
-                    {% endblock %}
+                   
                 </div>
-                <!--Errores en formulario-->
+                <!--Errores en formulario registro-->
                 <div>
                     {% if form.errors %}
                         {% for field in form %}

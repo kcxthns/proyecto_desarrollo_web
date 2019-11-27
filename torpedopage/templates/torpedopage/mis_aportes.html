@@ -3,7 +3,7 @@
 {% block vertorpedos %}
 {% if torpedos %}
 {% for torpedos in torpedos %}
-
+<!--Muestra los archivos (torpedos) que el usuario ha subido-->
 <div class="aportes">
     <div class="aportes_box">
         <h2>{{ torpedos.titulo }}</h2>
@@ -22,6 +22,7 @@
 
 {% endfor %}
 {% else %}
+<!--En caso de que el usuario no tenga archivos (torpedos) agregados-->
 <div class="col-xs-12">
     <h2>No haz realizado aportes!!!</h2>
     <h3>Why?!!! Why?!!!</h3>

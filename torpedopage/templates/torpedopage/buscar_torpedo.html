@@ -1,6 +1,7 @@
 {% extends 'torpedopage/base_user.html' %}
 
 {% block buscar_torpedo %}
+<!--Formulario de busqueda de torpedos-->
 <div class="seccion_buscar col-xs-12 center-xs">
     <form action="" method="GET">{% csrf_token %}
         <input class="input_buscar" type="search" value="{{request.GET.q}}" name="q" placeholder="Buscar torpedos" maxlength="100">
@@ -12,8 +13,8 @@
 
 
 {% block encontrados %}
-
-{% if submitbutton == 'Search' and request.GET.q != '' %}
+<!--Template de los torpedos encontrados al buscar-->
+{% if submitbutton == 'Search' and request.GET.q != '' %} <!--Se asegura de que se ha presionado el boton del formulario de busqueda y que esta no retornó vacío-->
 {% if torpedos_encontrados %}
 {% for torpedos_encontrados in torpedos_encontrados %}
 <div class="aportes">
@@ -30,6 +31,7 @@
 {% endfor %}
 
 {% else %}
+    <!--Se muestra cuando no se encontraron torpedos en la busqueda-->
     <h2 class="col-xs-12">No se encontraron torpedos :(</h2>
 {% endif %}
 {% endif %}
@@ -39,10 +41,11 @@
 
 
 {% block titulo_block %}
-{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if submitbutton == 'Search' and request.GET.q != '' %}<!--Se asegura de que se ha realizado por lo menos una búsqueda al llamar la vista-->
 <h2>Resultados búsqueda:</h2>
 {% else %}
-<h2>Aquí van tus Resultados!</h2>
+<!--El mensaje que se muestra antes de realizar cualquier búsqueda de torpedos-->
+<h2>Aquí van tus Resultados!</h2> 
 <h2>Así que ve e ingresa algo para que podamos hacer nuestra magia</h2>
 {% endif %}
 {% endblock %}

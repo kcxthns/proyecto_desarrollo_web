@@ -4,7 +4,19 @@ from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
 
 class ContentTypeRestrictedFileField(FileField):
-
+    """
+    Restringe el FileField para especificar el tipo de contenidos (content_types)
+    y el tamaño máximo del archivo(max_upload_size)
+    tamaños:
+        2.5MB - 2621440
+        5MB - 5242880
+        10MB - 10485760
+        20MB - 20971520
+        50MB - 5242880
+        100MB 104857600
+        250MB - 214958080
+        500MB - 429916160
+    """
     def __init__(self, *args, **kwargs):
         self.content_types = kwargs.pop("content_types")
         self.max_upload_size = kwargs.pop("max_upload_size")

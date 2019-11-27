@@ -5,9 +5,11 @@
         <li><a href="{% url 'torpedo_index' %}">HOME</a></li>
         <li><a href="{% url 'nosotros' %}">NOSOTROS</a>
             {% if user.is_authenticated %}
+            <!--Solo se muestra cuando el usuario inició sesión-->
         <li><a href="{% url 'user_page' %}">TORPEDOS</a>
         <li><a href="/logout">SALIR</a>
             {% else %}
+            <!--Se muestra solo cuando no se ha iniciado sesión-->
         <li><a href="{% url 'empezar' %}">EMPEZAR</a>
             {% endif %}
     </ul>

@@ -70,7 +70,7 @@ class Apunte(models.Model):
                         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                         'application/msword',
                         'text/plain'],
-        max_upload_size=5242880
+        max_upload_size=2621440
         )
 
     def __str__(self):
