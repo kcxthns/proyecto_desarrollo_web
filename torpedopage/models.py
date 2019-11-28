@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from torpedopage.FileFieldRestriccion import ContentTypeRestrictedFileField
+from .validators import validate_file_extension
 
 class TextoPagina(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -61,17 +62,19 @@ class Apunte(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     titulo = models.CharField(max_length=100)
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
+    descripcion = models.CharField(max_length=150, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     like = models.IntegerField(default=0)
-    #documento = models.FileField(upload_to='media/documents')
-    documento = ContentTypeRestrictedFileField(
-        upload_to='media/documents',
-        content_types=['application/pdf', 
-                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                        'application/msword',
-                        'text/plain'],
-        max_upload_size=2621440
-        )
+    documento = models.FileField(upload_to='media/documents',
+    validators=[validate_file_extension])
+    #documento = ContentTypeRestrictedFileField(
+        #upload_to='media/documents',
+        #content_types=['application/pdf', 
+                        #'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        #'application/msword',
+                        #'text/plain'],
+        #max_upload_size=2621440
+        #)
 
     def __str__(self):
         return self.titulo

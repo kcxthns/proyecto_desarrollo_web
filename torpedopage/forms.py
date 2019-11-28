@@ -45,6 +45,12 @@ class PreferenciaForm(forms.ModelForm):
 class ApunteForm(forms.ModelForm):
     class Meta:
         model = Apunte
-        fields = ('titulo', 'materia', 'documento', )
+        fields = ['titulo', 'descripcion', 'materia', 'documento', ]
+        labels = {
+            'titulo':'Título',
+            'descripcion':'Descripción',
+            'materia':'Materia',
+            'documento':'Archivo'
+        }
 
 

@@ -20,11 +20,12 @@
 <div class="aportes">
     <div class="aportes_box">
         <h2>{{ torpedos_encontrados.titulo }}</h2>
+        <p>{{ torpedos_encontrados.descripcion }}</p>
         <!--<p>Fecha de Creación: {{ torpedos.fecha_creacion }}</p>-->
         <p>Materia: {{ torpedos_encontrados.materia }}</p>
         <p>Likes: {{ torpedos_encontrados.like }}</p>
         <form action="{{ torpedos_encontrados.documento.url }}">
-            <input type="submit" value="Descargar" />
+            <input class="botton_buscar" type="submit" value="Descargar" />
         </form>
     </div>
 </div>
