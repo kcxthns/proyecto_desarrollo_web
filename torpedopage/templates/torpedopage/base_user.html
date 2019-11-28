@@ -1,6 +1,7 @@
 {% load static %}
 <html>
 <!--Template base para actividades de los usuario (buscar, agregar y ver torpedos)-->
+
 <head>
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
@@ -76,6 +77,8 @@
                     <div class="aportes_box">
                         {% block buscar_torpedo %}
                         {% endblock %}
+                        {% block titulo_aportes %}
+                        {% endblock %}
                     </div>
                 </div>
                 {% block titulo_block %}
@@ -90,6 +93,46 @@
                         {% block encontrados %}
                         {% endblock %}
                     </div>
+                </div>
+                <div class="box">
+                    <!--Botones paginación mis_aportes-->
+                    {% if torpedos %}
+                    <div class="row">
+                        <div class=" paginacion col-xs-6">
+                            {% if torpedos.has_previous %}
+                            <div class="paginacion_botones">
+                                <a href="?page={{ torpedos.previous_page_number }}">Anterior</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="paginacion col-xs-6">
+                            {% if torpedos.has_next %}
+                            <div class="paginacion_botones">
+                                <a href="?page={{ torpedos.next_page_number }}">Siguiente</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <!--Botones paginación buscar_torpedos-->
+                    {% if torpedos_encontrados %}
+                    <div class="row">
+                        <div class=" paginacion col-xs-6">
+                            {% if torpedos_encontrados.has_previous %}
+                            <div class="paginacion_botones">
+                                <a href="?page={{ torpedos_encontrados.previous_page_number }}&{{parametros.urlencode}}">Anterior</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="paginacion col-xs-6">
+                            {% if torpedos_encontrados.has_next %}
+                            <div class="paginacion_botones">
+                                <a href="?page={{ torpedos_encontrados.next_page_number }}&{{parametros.urlencode}}">Siguiente</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

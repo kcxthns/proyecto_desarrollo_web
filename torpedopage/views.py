@@ -24,6 +24,7 @@ from .models import Apunte
 from django.utils import timezone
 from torpedopage.models import TextoPagina
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 
@@ -118,26 +119,35 @@ def archivoTorpedo(request):
         id_torpedo = request.POST.get('id')
         torpedoBorrar = Apunte.objects.get(autor=autor, id=id_torpedo)
         torpedoBorrar.delete()
-        
+
+    paginador = Paginator(torpedos, 6)
+    pagina = request.GET.get('page')
+    torpedos = paginador.get_page(pagina)    
     return render(request, 'torpedopage/mis_aportes.html', {'logo': logo, 'torpedos': torpedos, })
 
 #url buscar_torpedo
 def buscarTorpedo(request):
-    if request.method == 'GET':
-        criterio_busqueda = request.GET.get("q")#El criterio de búsqueda ingresado en el formulario
-        submitbutton = request.GET.get('submit')#Ayuda a saber si se ha presionado el botón de búsqueda al menos una vez
-
+    context = {'logo':logo}
+    if request.method == "GET":
+        criterio_busqueda = request.GET.get("q")
+        submitbutton = request.GET.get("submit")
         if criterio_busqueda is not None:
-            #Al encontrar resultados en la búsqueda...
-            torpedos_encontrados= Apunte.objects.filter(titulo__icontains=criterio_busqueda)
-            context = {'logo': logo, 'torpedos_encontrados':torpedos_encontrados, 'submitbutton':submitbutton}
+            torpedos_encontrados = Apunte.objects.filter(titulo__icontains=criterio_busqueda)
+            paginador = Paginator(torpedos_encontrados, 6)
+            pagina = request.GET.get('page')
+            torpedos_encontrados = paginador.get_page(pagina)
+            context = {'logo':logo, 'torpedos_encontrados':torpedos_encontrados, 'submitbutton': submitbutton}
+            
+            #Permite continuear con la paginación
+            parametros = request.GET.copy() #Copia del GET
+            if 'page' in parametros:
+                del parametros['page'] #borra parametro page
+            context['parametros'] = parametros
+
             return render(request, 'torpedopage/buscar_torpedo.html', context)
-        else:
-            #Al no encontrar resultados en la búsqueda
-            return render(request, 'torpedopage/buscar_torpedo.html', {'logo':logo})
-    else:
-        #Al entrar por primera vez al apartado buscar_torpedo
-        return render(request, 'torpedopage/buscar_torpedo.html', {'logo': logo})
+    return render(request, 'torpedopage/buscar_torpedo.html', context)
+     
+    
 
 def passwordResetCompleto(request):
     return render(request, 'registration/password_reset_complete_custom.html', {'logo':logo})

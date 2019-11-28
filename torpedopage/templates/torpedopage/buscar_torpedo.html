@@ -3,7 +3,7 @@
 {% block buscar_torpedo %}
 <!--Formulario de busqueda de torpedos-->
 <div class="seccion_buscar col-xs-12 center-xs">
-    <form action="" method="GET">{% csrf_token %}
+    <form method="GET">
         <input class="input_buscar" type="search" value="{{request.GET.q}}" name="q" placeholder="Buscar torpedos" maxlength="100">
         <button name="submit" class="botton_buscar" type="submit" value="Search">Buscar Torpedo</button>
     </form>

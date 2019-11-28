@@ -205,3 +205,30 @@
     color: aliceblue;
     font-weight: bold;
 }
+
+.paginacion{
+    background: #CC505C;
+}
+
+/*.paginacion > a{
+    text-decoration: none;
+    color: aliceblue;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    padding: 1%;
+    text-align: center;
+}*/
+.paginacion_botones{
+    
+    background: #FFAB00;
+    
+    padding: 1%;
+    text-align: center;
+}
+.paginacion_botones > a{
+    text-decoration: none;
+    color: aliceblue;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    padding: 1%;
+}
