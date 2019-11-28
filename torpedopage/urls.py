@@ -46,5 +46,7 @@ urlpatterns = [
     path('cambio_exitoso', views.passwordResetCompleto, name='reset_completo'),
 
     #path('logo/', views.logoPagina, name='logo')
+
+    path('editar_torpedo/<int:torpedo_id>', views.editarTorpedo),
 ]
 

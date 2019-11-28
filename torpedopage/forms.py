@@ -17,12 +17,12 @@ class RegistroForm(UserCreationForm):
             'last_name',
             'email',
         ]
-    labels = {
-        'username': 'Nombre de usuario',
-        'first_name': 'Nombre Completo',
-        'last_name': 'Apellido',
-        'email': 'Email',
-    }  
+        labels = {
+            'username': 'Nombre de usuario',
+            'first_name': 'Nombre Completo',
+            'last_name': 'Apellido',
+            'email': 'Email',
+        }  
 #formulario de login
 class LoginForm(AuthenticationForm):
     class Meta:

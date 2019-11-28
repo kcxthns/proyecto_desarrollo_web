@@ -62,7 +62,7 @@ class Apunte(models.Model):
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     titulo = models.CharField(max_length=100)
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
-    descripcion = models.CharField(max_length=150, null=True)
+    descripcion = models.TextField(max_length=150, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     like = models.IntegerField(default=0)
     documento = models.FileField(upload_to='media/documents',

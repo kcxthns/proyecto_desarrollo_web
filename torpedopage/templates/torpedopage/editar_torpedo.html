@@ -1,0 +1,12 @@
+{% extends "torpedopage/base_user.html" %}
+{% load static %}
+
+{% block editartorpedos %}
+<!--Formulario para agregar el documento a la base de datos-->
+<h2>Edita tu glorioso torpedo</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+{% endblock editartorpedos %}

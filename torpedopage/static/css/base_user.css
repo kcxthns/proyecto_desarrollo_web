@@ -232,3 +232,14 @@
     font-weight: bold;
     padding: 1%;
 }
+
+.padding{
+    padding: 5%;
+}
+
+.padding button{
+    background: #FFAB00;
+    text-align: center;
+    color: black;
+    width: 150%;
+}

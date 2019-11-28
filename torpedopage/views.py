@@ -147,7 +147,17 @@ def buscarTorpedo(request):
             return render(request, 'torpedopage/buscar_torpedo.html', context)
     return render(request, 'torpedopage/buscar_torpedo.html', context)
      
-    
+def editarTorpedo(request, torpedo_id):
+    torpedo = Apunte.objects.get(id=torpedo_id)
+    form = ApunteForm(instance=torpedo)
+
+    if request.method == 'POST':
+        form = ApunteForm(request.POST, instance=torpedo)
+        if form.is_valid:
+            torpedo = form.save(commit=False)
+            torpedo.save()
+            return redirect('user_page')
+    return render(request, 'torpedopage/editar_torpedo.html', {'logo': logo, 'form':form})
 
 def passwordResetCompleto(request):
     return render(request, 'registration/password_reset_complete_custom.html', {'logo':logo})
