@@ -12,7 +12,7 @@ class TextoPagina(models.Model):
         return self.descripcion
 
 class ImagenPage(models.Model):
-    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)   
     descripcion = models.CharField(max_length=200)
     imagen = models.ImageField(upload_to='media/')
 
@@ -24,6 +24,15 @@ class ImagenGaleria(models.Model):
     descripcion = models.CharField(max_length=250, help_text="Descripción que aparecerá al pie de la foto en la galería")
     imagen = models.ImageField(upload_to='media/galeria')
 
+class ImagenLogo(models.Model):
+    nombre = nombre = models.CharField(primary_key=True, max_length=200, help_text="Debe contener la palabra logo")
+    descripcion = models.CharField(max_length=250, help_text="Descripción de la imagen logo")
+    imagen = models.ImageField(upload_to='media/galeria')
+
+class ImagenSlider(models.Model):
+    nombre = nombre = models.CharField(primary_key=True, max_length=200, help_text="Debe contener la palabra slider")
+    descripcion = models.CharField(max_length=250, help_text="Descripción de la imagen")
+    imagen = models.ImageField(upload_to='media/galeria')
 
 
 class PreferenciasUsuario(models.Model):

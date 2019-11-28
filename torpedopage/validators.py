@@ -6,4 +6,4 @@ def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]
     valid_extensions = ['.pdf', '.doc', '.docx', '.txt']
     if not ext.lower() in valid_extensions:
-        raise ValidationError(u'Unsupported file extension.')
+        raise ValidationError(u'Tipo archivo no soportado')

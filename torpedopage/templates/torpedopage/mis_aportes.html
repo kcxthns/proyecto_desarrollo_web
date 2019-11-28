@@ -12,19 +12,19 @@
         <p>Materia: {{ torpedos.materia }}</p>
         <p>Likes: {{ torpedos.like }}</p>
         <!--Descargar, Editar, Borrar-->
-        <div>
+        <div class="col-xs-12 center-xs padding">
             <form action="{{ torpedos.documento.url }}">
                 <button type="submit">Descargar</button>
             </form>
         </div>
         <div class="row col-xs-12 center-xs">
-            <div class="padding">
+            <div class="col-xs-6 center-xs padding">
                 <form action="/editar_torpedo/{{ torpedos.id }}">
                     <button type="submit">Editar</button>
                 </form>
             </div>
 
-            <div class="padding">
+            <div class="col-xs-6 padding">
                 <form action="" method="POST">{% csrf_token %}
                     <input type="hidden" name="id" value="{{ torpedos.id }}" />
                     <button type="submit"

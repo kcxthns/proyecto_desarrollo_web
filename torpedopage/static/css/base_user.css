@@ -234,12 +234,13 @@
 }
 
 .padding{
-    padding: 5%;
+    padding: 1%;
 }
 
 .padding button{
     background: #FFAB00;
     text-align: center;
     color: black;
-    width: 150%;
+    /*width: 150%;*/
+    width: 10vw;
 }

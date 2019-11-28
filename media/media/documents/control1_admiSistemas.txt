@@ -1,0 +1,76 @@
+contraseña root: 123456789
+-----------------------
+contraseña: duoc2019
+(usuarios ana, diego, karina)
+-------------------------
+crear usuario
+sudo useradd nombre_usuario
+---------------------------
+contraseña
+sudo passwd nombre_usuario
+-----------------------------
+crear grupo
+sudo groupadd nombre_grupo
+-----------------------------
+crear usuario y añadirlo a un grupo
+sudo adduser -m -g grupo_primario -G grupo_secundario nombre_usuario
+------------------------------
+ver a que grupos pertenece usuario
+groups nombre_usuario
+---------------------------------
+crear directorio
+mkdir nombre_directorio
+---------------------------------
+borrar directorio
+rm -r nombre_directorio (si tiene archivos o directorios dentro)
+rmdir nombre directorio (si está vacío)
+-----------------------------------------------------------------
+listar directorios (y archivos) dentro del directorio en que se está
+ls -l
+------------------------------------------------------
+crear archivo vacío
+touch nombre_archivo
+-------------------------------------------------------
+asignar usuario como dueño del directorio (o archivo)
+chown nombre_usuario nombre_directorio(archivo)
+------------------------------------------------------
+asignar grupo como dueño del directorio (o archivo)
+chown :nombre_grupo nombre_directorio(archivo)
+------------------------------------------------------
+Asignar permisos archivos y directorios
+chmod (número_permiso) direccion_directorio(archivo)
+ejm: chmod 774 directorio_operaciones
+------------------------------------------------------
+ver usuarios del sistema
+vi /etc/passwd
+-------------------------------------------------------
+
+Reglas iptables se guardan en /etc/sysconfig/iptables
+
+Permitir conexiones hacia el puerto 80 de la maquina sobre protocolo TCP
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+---------------------------------------------------------------------------
+Bloquear telnet INPUT (port 22)
+iptables -A INPUT -p tcp -m tcp --dport 23 -j DROP
+---------------------------------------------------------------------------
+Bloquear todas las conexiones
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+---------------------------------------------------------------------------
+Ver reglas iptables
+iptables -L -v -n
+
+---------------------------------------------------------
+crontab listar tareas (del usuario)
+crontab -l
+------------------------------------
+crontab agregar tarea (para el usuario)
+crontab -e
+---------------------------------------
+
+Mostrar todos los dispositivos disponibles
+lsblk (-l)
+----------------------------------------------
+Mostrar detalles de los archivos de sistema montados
+df (-h)

@@ -22,7 +22,7 @@ from .models import PreferenciasUsuario
 #from .forms import TorpedoForm
 from .models import Apunte
 from django.utils import timezone
-from torpedopage.models import TextoPagina
+from torpedopage.models import ImagenLogo, ImagenSlider, TextoPagina
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -30,7 +30,8 @@ from django.core.paginator import Paginator
 
 
 
-logo = ImagenPage.objects.filter(descripcion='logo torpedo')
+logo = ImagenLogo.objects.filter(nombre__icontains='logo')
+
 #url nosotros
 def nosotros(request):
     imagenGaleria = ImagenGaleria.objects.filter(nombre__icontains='galeria')
@@ -55,7 +56,7 @@ def empezar(request):
 
 #Inicio página Torpedo
 def login(request):
-    imagenSlider = ImagenPage.objects.filter(descripcion__icontains='slider')
+    imagenSlider = ImagenSlider.objects.filter(nombre__icontains='slider')
     textoLogueado = TextoPagina.objects.filter(descripcion__icontains='texto_index_usuario_logueado')
     form = LoginForm()
     if request.method == 'POST':
